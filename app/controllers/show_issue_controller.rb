@@ -8,19 +8,6 @@ class ShowIssueController < UIViewController
     rmq(self.view).apply_style :root_view
 
     @scroll_view = rmq.append(UIScrollView, :scroll_view).get
-    @scroll_view.frame =
-      CGRectMake(0, 0, 500, 500)
-
-    @scroll_view.pagingEnabled = true
-    @scroll_view.backgroundColor = UIColor.blackColor
-
-    @scroll_view.contentSize =
-      CGSizeMake(@scroll_view.frame.size.width , @scroll_view.frame.size.height)
-
-    @scroll_view.showsHorizontalScrollIndicator = false
-    @scroll_view.showsVerticalScrollIndicator = false
-
-
     rmq(@scroll_view).append(UILabel, :release_date).get
     rmq(@scroll_view).append(UILabel, :last_revised).get
     rmq(@scroll_view).append(UILabel, :source).get

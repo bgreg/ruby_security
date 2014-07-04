@@ -11,6 +11,27 @@ class ShowIssueControllerStylesheet < ApplicationStylesheet
      st.background_color = color.white
   end
 
+  def scroll_view(st)
+    st.view.frame = CGRectMake(0, 0, 500, 500)
+    st.view.pagingEnabled = true
+    st.background_color = color.white
+    st.view.contentSize = CGSizeMake(400, 500)
+    st.view.showsHorizontalScrollIndicator = true
+    st.view.showsVerticalScrollIndicator = false
+  end
+    # @scroll_view.frame =
+    #   CGRectMake(0, 0, 500, 500)
+    #
+    # @scroll_view.pagingEnabled = true
+    # @scroll_view.backgroundColor = UIColor.blackColor
+    #
+    # @scroll_view.contentSize =
+    #   CGSizeMake(@scroll_view.frame.size.width , @scroll_view.frame.size.height)
+    #
+    # @scroll_view.showsHorizontalScrollIndicator = false
+    # @scroll_view.showsVerticalScrollIndicator = false
+
+
   def release_date(st)
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
