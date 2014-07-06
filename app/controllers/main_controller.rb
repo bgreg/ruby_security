@@ -9,12 +9,11 @@ class MainController < UIViewController
     init_nav
     rmq(self.view).apply_style(:root_view)
     rmq.append(UIButton, :issue_message_button).on(:tap){ load_issue_list }
-    rmq.append(UILabel, :recent)
+    rmq.append(UISwitch, :alerts)
   end
 
   def init_nav
     self.title = 'Ruby Security'
-
     self.navigationItem.tap do |nav|
       nav.leftBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(
           UIBarButtonSystemItemAction,
