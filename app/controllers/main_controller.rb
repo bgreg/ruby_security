@@ -9,25 +9,18 @@ class MainController < UIViewController
     init_nav
     rmq(self.view).apply_style(:root_view)
     rmq.append(UIButton, :issue_message_button).on(:tap){ load_issue_list }
-    rmq.append(UISwitch, :alerts)
+    rmq.append(UILabel, :alert_label)
+    rmq.append(UISwitch, :alert)
   end
 
   def init_nav
     self.title = 'Ruby Security'
     self.navigationItem.tap do |nav|
-      nav.leftBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(
-          UIBarButtonSystemItemAction,
-          target: self, action: :nav_left_button
-      )
       nav.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(
-        UIBarButtonSystemItemRefresh,
+        UIBarButtonSystemItemPlay,
         target: self, action: :nav_right_button
       )
     end
-  end
-
-  def nav_left_button
-    puts 'Left button'
   end
 
   def load_issue_list
@@ -36,6 +29,7 @@ class MainController < UIViewController
   end
 
   def nav_right_button
-    puts 'Right button'
+    controller = IssuesController.alloc.initWithNibName(nil, bundle: nil)
+    self.navigationController.pushViewController(controller, animated: true)
   end
 end

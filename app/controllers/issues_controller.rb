@@ -18,6 +18,11 @@ class IssuesController < UITableViewController
   end
 
   def load_data
+    AFMotion::HTTP.get("http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-modified.xml") do |result|
+      doc = Wakizashi::HTML(result.body)
+      # http://www.w3schools.com/XPath/xpath_syntax.asp
+      puts doc.xpath("//nvd")
+    end
     @data = 0.upto(rand(100)).map do |i| # Test data
       {
         name: %w(Lorem ipsum dolor sit amet consectetur adipisicing elit sed).sample,
@@ -41,8 +46,8 @@ class IssuesController < UITableViewController
       rmq.create(IssuesCell, :issues_cell, reuse_identifier: ISSUES_CELL_ID).get
 
       # If you want to change the style of the cell, you can do something like this:
-      #rmq.create(IssuesCell, :issues_cell, reuse_identifier: ISSUES_CELL_ID,
-      #cell_style: UITableViewCellStyleSubtitle).get
+      # rmq.create(IssuesCell, :issues_cell, reuse_identifier: ISSUES_CELL_ID,
+      # cell_style: UITableViewCellStyleSubtitle).get
     end
     rmq(cell).on(:tap){ open_show_issue_controller }
     cell.update(data_row)
@@ -52,15 +57,5 @@ class IssuesController < UITableViewController
   def open_show_issue_controller
     controller = ShowIssueController.alloc.initWithNibName(nil, bundle: nil)
     self.navigationController.pushViewController(controller, animated: true)
-  end
-
-  # Remove if you are only supporting portrait
-  def supportedInterfaceOrientations
-    UIInterfaceOrientationMaskAll
-  end
-
-  # Remove if you are only supporting portrait
-  def willAnimateRotationToInterfaceOrientation(orientation, duration: duration)
-    rmq.all.reapply_styles
   end
 end
