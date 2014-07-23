@@ -22,7 +22,5 @@ gem 'motion-cocoapods'
 gem 'afmotion'
 
 # xml parsing
-# gem 'motion-hpple','~> 0.3.1'
-# gem 'nokogiri'
-
-gem 'wakizashi'
+gem 'motion-hpple'
+# gem 'wakizashi'

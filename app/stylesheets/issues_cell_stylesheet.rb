@@ -1,4 +1,5 @@
 module IssuesCellStylesheet
+
   def issues_cell_height
     80
   end
@@ -11,4 +12,5 @@ module IssuesCellStylesheet
   def cell_label(st)
     st.color = color.black
   end
+
 end

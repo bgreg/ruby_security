@@ -24,8 +24,10 @@ class MainController < UIViewController
   end
 
   def load_issue_list
-    controller = IssuesController.alloc.initWithNibName(nil, bundle: nil)
-    self.navigationController.pushViewController(controller, animated: true)
+    Cve.load do |cve|
+      controller = IssuesController.alloc.initWithData(cve)
+      self.navigationController.pushViewController(controller, animated: true)
+    end
   end
 
   def nav_right_button

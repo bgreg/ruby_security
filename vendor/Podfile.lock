@@ -21,14 +21,17 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - GDataXML-HTML (1.1.0)
+  - hpple (0.1.0)
 
 DEPENDENCIES:
   - AFNetworking
   - AFNetworking (~> 2.3.1)
   - GDataXML-HTML
+  - hpple (~> 0.1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
   GDataXML-HTML: 3f6537789b55edbc4d83283566f9779abd9680bc
+  hpple: 90593d47500406a245c355073f3f65fc0570f960
 
 COCOAPODS: 0.33.1
