@@ -41,7 +41,5 @@ Motion::Project::App.setup do |app|
   app.pods do
     pod 'AFNetworking'
     pod 'GDataXML-HTML'
-    # pod 'SVProgressHUD'
-    # pod 'JMImageCache'
   end
 end

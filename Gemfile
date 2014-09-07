@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'ruby_motion_query'
 
 # Useful tools that most people use
-#gem 'bubble-wrap'
+gem 'bubble-wrap'
 
 # If you use a cocoapod (find them here https://www.cocoacontrols.com)
 gem 'motion-cocoapods'
@@ -22,5 +22,4 @@ gem 'motion-cocoapods'
 gem 'afmotion'
 
 # xml parsing
-gem 'motion-hpple'
-# gem 'wakizashi'
+gem 'motion-hpple' # depreciated 
