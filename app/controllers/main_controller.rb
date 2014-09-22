@@ -29,9 +29,4 @@ class MainController < UIViewController
       self.navigationController.pushViewController(controller, animated: true)
     end
   end
-
-  def nav_right_button
-    controller = IssuesController.alloc.initWithNibName(nil, bundle: nil)
-    self.navigationController.pushViewController(controller, animated: true)
-  end
 end

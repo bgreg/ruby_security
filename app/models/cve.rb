@@ -1,5 +1,6 @@
 class Cve
   attr_accessor :data
+  CVE_SOURCE="http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-modified.xml"
 
   def initialize(params = {})
   end
@@ -9,15 +10,22 @@ class Cve
   end
 
   def self.load(&block)
-    AFMotion::XML.get("http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-modified.xml") do |result|
+    Dispatch::Queue.concurrent.async{ get_exposures(&block) }
+  end
+
+  def get_exposures(&block)
+    AFMotion::XML.get(CVE_SOURCE) do |result|
       if result.success?
-        doc   = Hpple.HTML(result.body)
-        retval = doc.xpath("//entry").collect{ |e| {name: e['id'], num: rand(100)} }
-        block.call(retval)
-      else
-        fail "FUCK"
+        parsed_exposures = parse_exposures(result)
+        Dispatch::Queue.main.async{ yield(parsed_exposures) }
       end
     end
+  end
+
+  def parsed_exposures(unparsed_exposures)
+    #
+    # parse json from rails app
+    #
   end
 
   def delete
