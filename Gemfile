@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'ruby_motion_query'
 
 # Useful tools that most people use
-gem 'bubble-wrap'
+# This will help parse json
+# gem 'bubble-wrap'
 
 # If you use a cocoapod (find them here https://www.cocoacontrols.com)
 gem 'motion-cocoapods'
