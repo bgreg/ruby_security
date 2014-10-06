@@ -25,7 +25,7 @@ class MainController < UIViewController
   end
 
   def load_issue_list
-    Cve.load do |cve|
+    Cve.load_short_list do |cve|
       controller = IssuesController.alloc.initWithData(cve)
       self.navigationController.pushViewController(controller, animated: true)
     end

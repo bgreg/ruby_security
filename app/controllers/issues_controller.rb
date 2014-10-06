@@ -11,20 +11,17 @@ class IssuesController < UITableViewController
   def viewDidLoad
     super
     self.title = "Issue List"
-
     load_data
-
     rmq.stylesheet = IssuesControllerStylesheet
 
     view.tap do |table|
       table.delegate   = self
       table.dataSource = self
-      rmq(table).apply_style :table
+      rmq(table).apply_style(:table)
     end
   end
 
   def load_data
-    puts @data['exposures'].inspect
     @data = @data['exposures']
   end
 
@@ -51,9 +48,11 @@ class IssuesController < UITableViewController
     cell
   end
 
-  def open_show_issue_controller(data_row)
-    puts data_row.inspect
-    controller = ShowIssueController.alloc.initWithNibName(nil, bundle: nil)
-    self.navigationController.pushViewController(controller, animated: true)
+  def open_show_issue_controller(id)
+    puts id.inspect
+    Cve.load_one(id) do |cve|
+      controller = ShowIssueController.alloc.initWithId(cve)
+      self.navigationController.pushViewController(controller, animated: true)
+    end
   end
 end
