@@ -1,6 +1,7 @@
 class Cve
+  CVE_SOURCE = "http://0.0.0.0:3000/exposures/index_short"
+
   attr_accessor :data
-  CVE_SOURCE="http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-modified.xml"
 
   def initialize(params = {})
   end
@@ -13,19 +14,20 @@ class Cve
     Dispatch::Queue.concurrent.async{ get_exposures(&block) }
   end
 
-  def get_exposures(&block)
-    AFMotion::XML.get(CVE_SOURCE) do |result|
+  def self.get_exposures(&block)
+    client = AFMotion::Client.build("https://alpha-api.app.net/") do
+      header "Accept", "application/json"
+      response_serializer :json
+    end
+
+    client.get(CVE_SOURCE) do |result|
       if result.success?
-        parsed_exposures = parse_exposures(result)
-        Dispatch::Queue.main.async{ yield(parsed_exposures) }
+        Dispatch::Queue.main.async{ block.call(result.object) }
+      elsif result.failure?
+        p result.error.localizedDescription
       end
     end
-  end
-
-  def parsed_exposures(unparsed_exposures)
-    #
-    # parse json from rails app
-    #
+    # close client?
   end
 
   def delete

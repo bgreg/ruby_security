@@ -10,15 +10,22 @@ class IssuesController < UITableViewController
 
   def viewDidLoad
     super
-
     self.title = "Issue List"
+
+    load_data
+
     rmq.stylesheet = IssuesControllerStylesheet
 
     view.tap do |table|
-      table.delegate = self
+      table.delegate   = self
       table.dataSource = self
       rmq(table).apply_style :table
     end
+  end
+
+  def load_data
+    puts @data['exposures'].inspect
+    @data = @data['exposures']
   end
 
   def tableView(table_view, numberOfRowsInSection: section)
@@ -30,7 +37,8 @@ class IssuesController < UITableViewController
   end
 
   def tableView(table_view, cellForRowAtIndexPath: index_path)
-    data_row = @data[index_path.row]
+    data_row = @data[index_path.row] # what does this do?
+
     cell = table_view.dequeueReusableCellWithIdentifier(ISSUES_CELL_ID) || begin
       rmq.create(IssuesCell, :issues_cell, reuse_identifier: ISSUES_CELL_ID).get
 
@@ -39,11 +47,12 @@ class IssuesController < UITableViewController
       # cell_style: UITableViewCellStyleSubtitle).get
     end
     cell.update(data_row)
-    rmq(cell).off(:tap).on(:tap){ open_show_issue_controller }
+    rmq(cell).off(:tap).on(:tap){ open_show_issue_controller(data_row) }
     cell
   end
 
-  def open_show_issue_controller
+  def open_show_issue_controller(data_row)
+    puts data_row.inspect
     controller = ShowIssueController.alloc.initWithNibName(nil, bundle: nil)
     self.navigationController.pushViewController(controller, animated: true)
   end

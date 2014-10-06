@@ -3,7 +3,6 @@ $:.unshift('/Library/RubyMotion/lib')
 require 'motion/project/template/ios'
 require 'bundler'
 Bundler.require
-require 'motion-hpple'
 
 Motion::Project::App.setup do |app|
 
@@ -40,6 +39,5 @@ Motion::Project::App.setup do |app|
 
   app.pods do
     pod 'AFNetworking'
-    pod 'GDataXML-HTML'
   end
 end

@@ -9,7 +9,7 @@ class MainController < UIViewController
     init_nav
     rmq(self.view).apply_style(:root_view)
     rmq.append(UIButton, :issue_message_button).on(:tap){ load_issue_list }
-    rmq.append(UILabel, :alert_label)
+    rmq.append(UILabel,  :alert_label)
     rmq.append(UISwitch, :alert)
   end
 
@@ -18,7 +18,8 @@ class MainController < UIViewController
     self.navigationItem.tap do |nav|
       nav.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(
         UIBarButtonSystemItemPlay,
-        target: self, action: :nav_right_button
+        target: self,
+        action: :nav_right_button
       )
     end
   end

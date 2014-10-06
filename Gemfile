@@ -23,4 +23,4 @@ gem 'motion-cocoapods'
 gem 'afmotion'
 
 # xml parsing
-gem 'motion-hpple' # depreciated 
+# gem 'motion-hpple' # depreciated 
