@@ -9,7 +9,7 @@ class ShowIssueController < UIViewController
 
   def viewDidLoad
     super
-    self.title = "A Cve"
+    self.title = "A CVE"
     load_data
     rmq.stylesheet = ShowIssueControllerStylesheet
     rmq(self.view).apply_style(:root_view)

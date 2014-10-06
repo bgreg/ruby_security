@@ -2,7 +2,7 @@ class Cve
   BASE_URL   = "http://0.0.0.0:3000/exposures"
   SHORT_LIST = "index_short"
 
-  attr_accessor :data
+  attr_accessor :data, :client
 
   def initialize(params = {})
   end
@@ -17,6 +17,15 @@ class Cve
 
   def self.load_one(id, &block)
     Dispatch::Queue.concurrent.async{ get_exposure(id, &block) }
+  end
+ 
+  def client
+    @client ||= begin
+      AFMotion::Client.build(BASE_URL) do
+        header "Accept", "application/json"
+        response_serializer :json
+      end
+    end
   end
 
   def self.get_exposure(id, &block)
