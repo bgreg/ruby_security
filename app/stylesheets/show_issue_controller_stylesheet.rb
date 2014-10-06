@@ -120,6 +120,7 @@ class ShowIssueControllerStylesheet < ApplicationStylesheet
     st.color = color.red
     st.font = font.small
   end
+
   def cvss_base_score_body(st)
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0

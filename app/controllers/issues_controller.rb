@@ -49,8 +49,7 @@ class IssuesController < UITableViewController
   end
 
   def open_show_issue_controller(id)
-    puts id.inspect
-    Cve.load_one(id) do |cve|
+    Cve.load_one(id['id']) do |cve|
       controller = ShowIssueController.alloc.initWithId(cve)
       self.navigationController.pushViewController(controller, animated: true)
     end
