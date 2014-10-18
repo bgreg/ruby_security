@@ -34,11 +34,12 @@ class IssuesController < UITableViewController
   end
 
   def tableView(table_view, cellForRowAtIndexPath: index_path)
-    data_row = @data[index_path.row] # what does this do?
+    data_row = @data[index_path.row] # andy what does this do?
 
     cell = table_view.dequeueReusableCellWithIdentifier(ISSUES_CELL_ID) || begin
       rmq.create(IssuesCell, :issues_cell, reuse_identifier: ISSUES_CELL_ID).get
 
+      # cell_style: UITableViewCellStyleSubtitle).get
       # If you want to change the style of the cell, you can do something like this:
       # rmq.create(IssuesCell, :issues_cell, reuse_identifier: ISSUES_CELL_ID,
       # cell_style: UITableViewCellStyleSubtitle).get
@@ -49,7 +50,7 @@ class IssuesController < UITableViewController
   end
 
   def open_show_issue_controller(id)
-    Cve.load_one(id['id']) do |cve|
+    Cve.new.load_one(id['id']) do |cve|
       controller = ShowIssueController.alloc.initWithId(cve)
       self.navigationController.pushViewController(controller, animated: true)
     end

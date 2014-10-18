@@ -10,23 +10,9 @@ class MainStylesheet < ApplicationStylesheet
   end
 
   def issue_message_button(st)
-    st.frame = {t: 80, w: st.super_width, h: 30}
-    st.centered = :horizontal
-    st.text = '15 High Priority ..'
-    st.color = color.red
-    st.font = font.medium
-  end
-
-  def alert_label(st)
-    st.frame = {t: 250, w: 230, h: 30 }
-    st.centered = :horizontal
-    st.color = color.black
-    st.font = font.medium
-    st.text = "Enable Notifications?"
-  end
-
-  def alert(st) # 40 px below label
-    st.frame = {t: 290, w: st.super_width, h: 30 }
-    st.centered = :horizontal
+    st.frame    = { w: st.super_width, h: 50, t: 10, centered: :both}
+    st.text     = '0 New CVE\'s'
+    st.color    = color.red
+    st.font     = font.medium
   end
 end

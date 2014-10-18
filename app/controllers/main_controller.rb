@@ -9,23 +9,21 @@ class MainController < UIViewController
     init_nav
     rmq(self.view).apply_style(:root_view)
     rmq.append(UIButton, :issue_message_button).on(:tap){ load_issue_list }
-    rmq.append(UILabel,  :alert_label)
-    rmq.append(UISwitch, :alert)
   end
 
   def init_nav
     self.title = 'Ruby Security'
-    self.navigationItem.tap do |nav|
-      nav.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(
-        UIBarButtonSystemItemPlay,
-        target: self,
-        action: :nav_right_button
-      )
+    update_recent_cve_count
+  end
+
+  def update_recent_cve_count
+    Cve.new.get_recent_count do |cve|
+      rmq(:issue_message_button).data("Recent issues #{cve['count']}")
     end
   end
 
   def load_issue_list
-    Cve.load_short_list do |cve|
+    Cve.new.load_short_list do |cve|
       controller = IssuesController.alloc.initWithData(cve)
       self.navigationController.pushViewController(controller, animated: true)
     end
