@@ -26,28 +26,29 @@ class ShowIssueControllerStylesheet < ApplicationStylesheet
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
     st.background_color = color.light_gray
-    st.frame = {t:0, w: st.super_width, h: 30}
-    st.text = "Release date:"
+    st.frame = {t: 0, w: st.super_width, h: 30}
+    st.text = "Release date"
     st.color = color.red
     st.font = font.small
   end
+
   def release_date_body(st)
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
-    st.frame = {bp:1, w: st.super_width, h: 30}
+    st.frame = {bp: 1, w: st.super_width, h: 30}
     st.text = "#{Time.now}"
     st.color = color.black
     st.font = font.small
   end
 
-
   def last_revised_label(st)
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "Last Revised:"
+    st.text = "Last Revised"
     st.background_color = color.light_gray
     st.color = color.red
     st.font = font.small
   end
+
   def last_revised_body(st)
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
@@ -59,11 +60,12 @@ class ShowIssueControllerStylesheet < ApplicationStylesheet
 
   def source_label(st)
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "Source:"
+    st.text = "Source"
     st.background_color = color.light_gray
     st.color = color.red
     st.font = font.small
   end
+
   def source_body(st)
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
@@ -77,14 +79,14 @@ class ShowIssueControllerStylesheet < ApplicationStylesheet
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "Summary:"
+    st.text = "Summary"
     st.color = color.red
     st.font = font.small
     st.background_color = color.light_gray
   end
+
   def summary_body(st)
-    st.text = "The Dragonfly gem 0.7 before 0.8.6 and 0.9.x before 0.9.13 for Ruby, when used with Ruby on Rails, allows remote attackers to execute arbitrary code via a crafted request."\
-              "he Dragonfly gem 0.7 before 0.8.6 and 0.9.x before 0.9.13 for Ruby, when used with Ruby on Rails, allows remote attackers to execute arbitrary code via a crafted request."
+    st.text = ""
     st.adjusts_font_size = true
     st.number_of_lines = 0
     st.view.minimumFontSize = 16
@@ -97,16 +99,17 @@ class ShowIssueControllerStylesheet < ApplicationStylesheet
 
   def cvss_severity_label(st)
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "CVSS Severity:"
+    st.text = "CVSS Severity"
     st.background_color = color.light_gray
     st.color = color.red
     st.font = font.small
   end
+
   def cvss_severity_body(st)
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "7.21"
+    st.text = "0"
     st.color = color.black
     st.font = font.small
   end
@@ -115,7 +118,7 @@ class ShowIssueControllerStylesheet < ApplicationStylesheet
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "CVSS v2 Base Score: 7.2"
+    st.text = "CVSS v2 Base Score"
     st.background_color = color.light_gray
     st.color = color.red
     st.font = font.small
@@ -125,7 +128,7 @@ class ShowIssueControllerStylesheet < ApplicationStylesheet
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "7.2"
+    st.text = "0"
     st.color = color.black
     st.font = font.small
   end
@@ -139,11 +142,12 @@ class ShowIssueControllerStylesheet < ApplicationStylesheet
     st.color = color.red
     st.font = font.small
   end
+
   def impact_subscore_body(st)
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "6.2"
+    st.text = "0"
     st.color = color.black
     st.font = font.small
   end
@@ -152,16 +156,17 @@ class ShowIssueControllerStylesheet < ApplicationStylesheet
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "Exploitability Subscore:"
+    st.text = "Exploitability Subscore"
     st.background_color = color.light_gray
     st.color = color.red
     st.font = font.small
   end
+
   def explotability_subscore_body(st)
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "10.0"
+    st.text = "0"
     st.color = color.black
     st.font = font.small
   end
@@ -170,16 +175,17 @@ class ShowIssueControllerStylesheet < ApplicationStylesheet
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "Access Vector:"
+    st.text = "Access Vector"
     st.background_color = color.light_gray
     st.color = color.red
     st.font = font.small
   end
+
   def access_vector_body(st)
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "Network Exploitable"
+    st.text = "none"
     st.color = color.black
     st.font = font.small
   end
@@ -188,49 +194,52 @@ class ShowIssueControllerStylesheet < ApplicationStylesheet
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "Access Complexity: "
+    st.text = "Access Complexity"
     st.background_color = color.light_gray
     st.color = color.red
     st.font = font.small
   end
+
   def access_complexity_body(st)
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "Low"
+    st.text = "none"
     st.color = color.black
     st.font = font.small
   end
 
   def authentication_label(st)
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "Authentication:"
+    st.text = "Authentication"
     st.background_color = color.light_gray
     st.color = color.red
     st.font = font.small
   end
+
   def authentication_body(st)
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "Not requiblack to exploit"
+    st.text = "none"
     st.color = color.black
     st.font = font.small
   end
 
   def impact_type_label(st)
     st.frame = {bp: 1, w: st.super_width, h: 30}
-    st.text = "Impact Type:"
+    st.text = "Impact Type"
     st.background_color = color.light_gray
     st.color = color.red
     st.font = font.small
   end
+
   def impact_type_body(st)
     st.view.adjustsFontSizeToFitWidth = 0
     st.view.numberOfLines = 0
     st.view.minimumFontSize = 16
     st.frame = {bp: 1, w: st.super_width, h: 300}
-    st.text = "Allows unauthorized disclosure of information; Allows unauthorized modification; Allows disruption of service"
+    st.text = "none"
     st.color = color.black
     st.font = font.small
   end

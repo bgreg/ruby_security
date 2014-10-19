@@ -9,6 +9,9 @@ class MainStylesheet < ApplicationStylesheet
     st.background_color = color.white
   end
 
+  #
+  # Removed
+  #
   def issue_message_button(st)
     st.frame    = { w: st.super_width, h: 50, t: 10, centered: :both}
     st.text     = '0 New CVE\'s'

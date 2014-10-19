@@ -8,6 +8,6 @@ class IssuesControllerStylesheet < ApplicationStylesheet
   end
 
   def table(st)
-    st.background_color = color.gray
+    st.background_color = color.white
   end
 end

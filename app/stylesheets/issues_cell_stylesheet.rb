@@ -1,7 +1,6 @@
 module IssuesCellStylesheet
-
   def issues_cell_height
-    80
+    100
   end
 
   def issues_cell(st)
@@ -13,4 +12,6 @@ module IssuesCellStylesheet
     st.color = color.black
   end
 
+  def cell_style(st)
+  end
 end

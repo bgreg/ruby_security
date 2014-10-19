@@ -16,6 +16,8 @@ class IssuesCell < UITableViewCell
   def update(data)
     # Update data here
     @name.text = data[:name]
+    # self.textLabel.text = data[:id]
+    self.detailTextLabel.text  = data[:name]
   end
 
 end

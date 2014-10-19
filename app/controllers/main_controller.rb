@@ -1,4 +1,7 @@
 class MainController < UIViewController
+  #
+  # Marked for removal
+  #
 
   def viewDidLoad
     super
