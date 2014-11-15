@@ -1,7 +1,7 @@
 class Cve
 
   BASE_URL     = "http://0.0.0.0:3000/exposures"
-  SHORT_LIST   = "index_short"
+  SHORT_LIST   = "index"
   RECENT_COUNT = "recent_count"
 
   attr_accessor :data, :client
@@ -52,7 +52,7 @@ class Cve
   end
 
   def get_exposures(&block)
-    client.get(SHORT_LIST) do |result|
+    client.get("") do |result|
       if result.success?
         Dispatch::Queue.main.async{ block.call(result.object) }
       elsif result.failure?

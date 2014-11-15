@@ -15,9 +15,10 @@ class IssuesCell < UITableViewCell
 
   def update(data)
     # Update data here
-    @name.text = data[:name]
-    # self.textLabel.text = data[:id]
-    self.detailTextLabel.text  = data[:name]
+    puts "5 #{__method__} #{data.inspect}"
+    @name.text = data["name"]
+    self.detailTextLabel.text  = data["name"]
+    puts "6 #{__method__} work?"
   end
 
 end

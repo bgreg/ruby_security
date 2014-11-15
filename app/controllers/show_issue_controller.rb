@@ -6,7 +6,6 @@ class ShowIssueController < UIViewController
     self
   end
 
-
   def viewDidLoad
     super
     self.title = "A CVE"

@@ -21,6 +21,8 @@ gem 'motion-cocoapods'
 
 # If you need to access the network, use AFMotion; it uses AFNetworking
 gem 'afmotion'
+gem 'motion-support'
+
 
 # xml parsing
 # gem 'motion-hpple' # depreciated 

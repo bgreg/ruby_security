@@ -11,7 +11,7 @@ Motion::Project::App.setup do |app|
   app.short_version = '0.1.0'
   app.version = app.short_version
 
-  app.sdk_version = '8.0'
+  app.sdk_version = '8.1'
   app.deployment_target = '7.0'
   # Or for iOS 6
   #app.sdk_version = '6.1'
@@ -36,6 +36,7 @@ Motion::Project::App.setup do |app|
 
   # app.vendor_project('vendor/Flurry', :static)
   # app.vendor_project('vendor/DSLCalendarView', :static, :cflags => '-fobjc-arc') # Using arc
+  app.detect_dependencies = false
 
   app.pods do
     pod 'AFNetworking'
