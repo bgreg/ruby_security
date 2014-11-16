@@ -27,8 +27,6 @@ class IssuesController < UITableViewController
   end
 
   def tableView(table_view, numberOfRowsInSection: section)
-    # @data["recents"].count + @data['others'].count
-    puts "1 #{__method__} data:#{@data.inspect} section:#{section}"
     tuple_data[section].length
   end
 
@@ -37,7 +35,9 @@ class IssuesController < UITableViewController
   end
 
   def tableView(table_view, titleForHeaderInSection: section)
-    @data.keys[section].to_s
+    @data.keys.reverse[section]
+      .gsub(/recents/,"Published in the last 30 days").to_s
+      .gsub(/others/,"Published since #{Date.today.beginning_of_year}").to_s
   end
 
   def numberOfSectionsInTableView(tableView)
@@ -45,14 +45,8 @@ class IssuesController < UITableViewController
   end
 
   def tableView(table_view, cellForRowAtIndexPath: index_path)
-    # puts "2 #{__method__} #{@data.inspect}"
-    puts "2 #{__method__} |#{index_path.section}| |#{index_path.row}|"
     data_row = tuple_data[index_path.section][index_path.row]
-    puts "3 #{__method__} |#{data_row.inspect}|"
-
     cell = table_view.dequeueReusableCellWithIdentifier(ISSUES_CELL_ID) || begin
-      # puts "4 #{__method__} |#{index_path.row}| |#{index_path.description}|"
-
       # rmq.create(IssuesCell, :issues_cell, reuse_identifier: ISSUES_CELL_ID).get
       # cell_style: UITableViewCellStyleSubtitle).get
       # If you want to change the style of the cell, you can do something like this:

@@ -4,7 +4,8 @@ class IssuesCell < UITableViewCell
     q = rmq(self.contentView)
 
     # Add your subviews, init stuff here
-    # @foo = q.append(UILabel, :foo).get
+    # q.append(UILabel, :foo).get
+    # rmq(:foo).style{|st| st.text = "test"}
 
     # Or use the built-in table cell controls, if you don't use
     # these, they won't exist at runtime
@@ -14,11 +15,8 @@ class IssuesCell < UITableViewCell
   end
 
   def update(data)
-    # Update data here
-    puts "5 #{__method__} #{data.inspect}"
-    @name.text = data["name"]
-    self.detailTextLabel.text  = data["name"]
-    puts "6 #{__method__} work?"
+    @name.text = "#{data["cve_id"]}"
+    self.detailTextLabel.text = data["name"]
   end
 
 end
