@@ -16,6 +16,9 @@ class ShowIssueController < UIViewController
     append_labels
     update_data_tags
     build_references
+
+    # summary_height =  rmq(:summary_body).data.length / 20 * 16
+    # rmq(:summary_body).resize(height: summary_height )
   end
 
   def load_data
